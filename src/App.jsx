@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
 
-import { Thought } from './Thought/Thought';
+import { Thought } from './components/Thought';
 
 export const App = () => {
   TimeAgo.setDefaultLocale(en.locale);
