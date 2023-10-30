@@ -43,7 +43,9 @@ export const PostThought = ({ handleFetchData }) => {
         />
       </div>
       <div className="post-thought-buttom">
-        <button onClick={() => postThought(thought)}>Send Happy Thought</button>
+        <button onClick={() => postThought(thought)}>
+          ❤️ Send Happy Thought ❤️
+        </button>
       </div>
     </div>
   );
