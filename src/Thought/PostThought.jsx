@@ -1,8 +1,7 @@
-// import { PropTypes } from 'prop-types';
-
+import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 
-export const PostThought = () => {
+export const PostThought = ({ handleFetchData }) => {
   const [thought, setThought] = useState('');
   const postThought = async message => {
     try {
@@ -16,6 +15,10 @@ export const PostThought = () => {
       );
       const data = await response.json();
       console.log(data);
+      console.log();
+      setThought('');
+      handleFetchData();
+
       // need to handle 404
     } catch (e) {
       // need to handle this better
@@ -32,6 +35,7 @@ export const PostThought = () => {
       <div>
         <textarea
           rows={3}
+          value={thought}
           onChange={e => {
             setThought(e.target.value);
             console.log(thought);
@@ -46,7 +50,6 @@ export const PostThought = () => {
 };
 
 PostThought.propTypes = {
-  // message: PropTypes.string.isRequired,
-  // hearts: PropTypes.number.isRequired,
-  // createdAt: PropTypes.string.isRequired,
+  // updateThoughts: PropTypes.func.isRequired,
+  handleFetchData: PropTypes.func.isRequired,
 };
