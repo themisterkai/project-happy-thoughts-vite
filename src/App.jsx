@@ -35,7 +35,7 @@ export const App = () => {
       <Thoughts
         thoughts={thoughts}
         // updateThoughts={updateThoughts}
-        // handleFetchData={handleFetchData}
+        handleFetchData={handleFetchData}
       />
     </div>
   );
