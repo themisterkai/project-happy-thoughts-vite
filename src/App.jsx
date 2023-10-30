@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en.json';
+
 import { Thought } from './Thought/Thought';
 
 export const App = () => {
+  TimeAgo.setDefaultLocale(en.locale);
+  TimeAgo.addLocale(en);
   const [thoughts, updateThoughts] = useState([]);
   const handleFetchData = async () => {
     const response = await fetch(
@@ -17,9 +22,11 @@ export const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="main">
       {thoughts.map(thought => (
-        <Thought key={thought._id} {...thought} />
+        <div key={thought._id} className="thought-wrapper">
+          <Thought {...thought} />
+        </div>
       ))}
     </div>
   );
