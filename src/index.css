@@ -133,6 +133,8 @@ textarea {
   padding: 20px;
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  transform-origin: 50% 0;
+  animation: append-animate 0.3s linear;
 }
 
 @keyframes pulse-small {
@@ -160,6 +162,17 @@ textarea {
 
   to {
     transform: scale(1);
+  }
+}
+
+@keyframes append-animate {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
   }
 }
 
