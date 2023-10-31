@@ -5,6 +5,7 @@ import en from 'javascript-time-ago/locale/en.json';
 import { Thoughts } from './components/Thoughts';
 import { PostThought } from './components/PostThought';
 import { Hearted } from './components/Hearted';
+import { Header } from './components/Header';
 
 export const App = () => {
   TimeAgo.setDefaultLocale(en.locale);
@@ -36,6 +37,7 @@ export const App = () => {
 
   return (
     <div className="main">
+      <Header />
       <Hearted count={hearted.length} />
       <PostThought handleFetchData={handleFetchData} />
       <Thoughts
