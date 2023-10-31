@@ -30,9 +30,9 @@ export const PostThought = ({ handleFetchData }) => {
   return (
     <div className="post-thought">
       <div className="post-thought-title">
-        What is making you happy right now?
+        <h2>What is making you happy right now?</h2>
       </div>
-      <div>
+      <div className="text-area">
         <textarea
           rows={3}
           value={thought}

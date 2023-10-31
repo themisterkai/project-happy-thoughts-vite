@@ -39,16 +39,76 @@ code {
   width: 90%;
 }
 
-.post-wrapper textarea {
+.post-thought .text-area {
   width: 100%;
 }
 
+textarea {
+  width: 100%;
+  font-size: 18px;
+}
+
+.post-thought button {
+  background-color: #ffb7d2;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 0 0 5px;
+  border: none;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.post-wrapper button:hover {
+  background-color: rgb(255, 199, 220);
+}
+
 .post-thought-count {
-  color: black;
+  width: 100%;
+  color: rgb(97, 97, 97);
+  text-align: right;
+}
+
+.thought-heart-time-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.thought-time {
+  color: rgb(120, 120, 120);
+}
+
+.thought-hearts button {
+  font-size: 24px;
+  background-color: #d1d1d1;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  animation: pulse-small 2s infinite;
+}
+
+.thought-hearts button:hover {
+  background-color: rgb(255, 199, 220);
+}
+
+.thought-hearts button:disabled,
+.thought-hearts button[disabled] {
+  background-color: #ee8bb4;
+  /* -webkit-appearance: none; */
+  opacity: 10;
 }
 
 .post-thought-count-red {
+  width: 100%;
   color: red;
+  text-align: right;
 }
 
 .thought-wrapper {
@@ -63,6 +123,34 @@ code {
   padding: 20px;
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+@keyframes pulse-small {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-big {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 @media (min-width: 675px) {
