@@ -108,11 +108,11 @@ textarea {
   background-color: rgb(255, 199, 220);
 }
 
-.thought-hearts button:disabled,
-.thought-hearts button[disabled] {
+.thought-hearts-liked button,
+.thought-hearts-liked button:hover {
   background-color: #ee8bb4;
+  cursor: default;
   /* -webkit-appearance: none; */
-  opacity: 10;
 }
 
 .post-thought-count-red {
