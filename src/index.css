@@ -43,6 +43,14 @@ code {
   width: 100%;
 }
 
+.post-thought-count {
+  color: black;
+}
+
+.post-thought-count-red {
+  color: red;
+}
+
 .thought-wrapper {
   width: 100%;
   /* text-align: center; */

@@ -42,7 +42,14 @@ export const PostThought = ({ handleFetchData }) => {
           }}
         />
       </div>
-      <div className="post-thought-buttom">
+      <div
+        className={
+          thought.length < 140 ? 'post-thought-count' : 'post-thought-count-red'
+        }
+      >
+        {thought.length}/140
+      </div>
+      <div className="post-thought-button">
         <button onClick={() => postThought(thought)}>
           ❤️ Send Happy Thought ❤️
         </button>
