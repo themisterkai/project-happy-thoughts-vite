@@ -38,11 +38,16 @@ export const Heart = ({
   };
   const disabled = hearted.indexOf(_id) !== -1;
   return (
-    <div className="thought-hearts">
-      <button onClick={() => heartThought(_id)} disabled={disabled}>
-        ❤️
-      </button>{' '}
-      x {hearts}
+    <div>
+      {disabled ? (
+        <div className="thought-hearts-liked">
+          <button>💖</button> x {hearts}
+        </div>
+      ) : (
+        <div className="thought-hearts">
+          <button onClick={() => heartThought(_id)}>❤️</button> x {hearts}
+        </div>
+      )}
     </div>
   );
 };
