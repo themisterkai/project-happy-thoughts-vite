@@ -1,40 +1,28 @@
 import { PropTypes } from 'prop-types';
 import ReactTimeAgo from 'react-time-ago';
 
+import { Heart } from './Heart';
+
 export const Thought = ({
   _id,
   message,
   hearts,
   createdAt,
   handleFetchData,
+  hearted,
+  setHearted,
 }) => {
-  const heartThought = async () => {
-    try {
-      const response = await fetch(
-        `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${_id}/like`,
-        {
-          method: 'POST',
-          headers: new Headers({ 'content-type': 'application/json' }),
-        }
-      );
-      const data = await response.json();
-      console.log(data);
-      console.log();
-      // setThought('');
-      handleFetchData();
-
-      // need to handle 404
-    } catch (e) {
-      // need to handle this better
-      // setError(e.toString());
-      // console.log(error);
-    }
-  };
   return (
     <div className="thought">
       <div className="thought-message">{message}</div>
       <div className="thought-hearts">
-        <button onClick={() => heartThought()}>❤️</button> x {hearts}
+        <Heart
+          _id={_id}
+          hearts={hearts}
+          handleFetchData={handleFetchData}
+          hearted={hearted}
+          setHearted={setHearted}
+        />
       </div>
       <div className="thought-time">
         <ReactTimeAgo date={new Date(createdAt)} locale="en-US" />
@@ -49,4 +37,6 @@ Thought.propTypes = {
   hearts: PropTypes.number.isRequired,
   createdAt: PropTypes.string.isRequired,
   handleFetchData: PropTypes.func.isRequired,
+  hearted: PropTypes.array.isRequired,
+  setHearted: PropTypes.func.isRequired,
 };

@@ -4,14 +4,24 @@ import { PropTypes } from 'prop-types';
 
 import { Thought } from './Thought';
 
-export const Thoughts = ({ thoughts, handleFetchData }) => {
+export const Thoughts = ({
+  thoughts,
+  handleFetchData,
+  hearted,
+  setHearted,
+}) => {
   // const [error, setError] = useState();
 
   return (
     <>
       {thoughts.map(thought => (
         <div key={thought._id} className="thought-wrapper">
-          <Thought {...thought} handleFetchData={handleFetchData} />
+          <Thought
+            {...thought}
+            handleFetchData={handleFetchData}
+            hearted={hearted}
+            setHearted={setHearted}
+          />
         </div>
       ))}
     </>
@@ -21,4 +31,6 @@ export const Thoughts = ({ thoughts, handleFetchData }) => {
 Thoughts.propTypes = {
   thoughts: PropTypes.array.isRequired,
   handleFetchData: PropTypes.func.isRequired,
+  hearted: PropTypes.array.isRequired,
+  setHearted: PropTypes.func.isRequired,
 };
