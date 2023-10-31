@@ -3,7 +3,8 @@ import { PropTypes } from 'prop-types';
 export const Hearted = ({ count }) => {
   return (
     <div className="hearted-count">
-      ❤️ {count} {count === 1 ? 'thought' : 'thoughts'} hearted
+      <span className="hearted-count-emoji">💖</span> {count}{' '}
+      {count === 1 ? 'thought' : 'thoughts'} hearted
     </div>
   );
 };

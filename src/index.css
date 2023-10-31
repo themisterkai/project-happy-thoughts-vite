@@ -39,6 +39,11 @@ code {
   width: 90%;
 }
 
+h1 {
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+
 .post-thought .text-area {
   width: 100%;
 }
@@ -82,6 +87,11 @@ textarea {
 
 .thought-time {
   color: rgb(120, 120, 120);
+}
+
+.hearted-count-emoji {
+  display: inline-block;
+  animation: pulse-big 2s infinite;
 }
 
 .thought-hearts button {
