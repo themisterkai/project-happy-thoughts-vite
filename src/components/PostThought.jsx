@@ -62,13 +62,19 @@ export const PostThought = ({ handleFetchData }) => {
           }}
         />
       </div>
-      <Error error={error} />
-      <div
-        className={
-          thought.length < 140 ? 'post-thought-count' : 'post-thought-count-red'
-        }
-      >
-        {thought.length}/140
+      <div className="post-thought-container">
+        <div className="post-thought-container-error">
+          <Error error={error} />
+        </div>
+        <div
+          className={
+            thought.length < 140
+              ? 'post-thought-count'
+              : 'post-thought-count-red'
+          }
+        >
+          {thought.length}/140
+        </div>
       </div>
       <div className="post-thought-button">
         <button onClick={() => postThought(thought)} disabled={disabled}>
