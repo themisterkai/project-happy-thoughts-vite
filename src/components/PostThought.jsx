@@ -36,6 +36,14 @@ export const PostThought = ({ handleFetchData }) => {
     }
   };
 
+  const checkIfTooLong = message => {
+    if (message.length > 140) {
+      setError(errorTooLong);
+    } else {
+      setError('');
+    }
+  };
+
   return (
     <div className="post-thought">
       <div className="post-thought-title">
@@ -47,13 +55,7 @@ export const PostThought = ({ handleFetchData }) => {
           value={thought}
           onChange={e => {
             setThought(e.target.value);
-            console.log(thought);
-
-            if (thought.length > 140) {
-              setError(errorTooLong);
-            } else {
-              setError('');
-            }
+            checkIfTooLong(e.target.value);
           }}
         />
       </div>
