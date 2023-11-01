@@ -40,8 +40,31 @@ code {
 }
 
 h1 {
-  margin-bottom: 15px;
+  margin: 15px 0;
   white-space: nowrap;
+}
+
+.loading-page {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.loading-page h1 {
+  margin-bottom: 10px;
+}
+
+.loading-page-text {
+  margin-top: 50px;
+  color: rgb(120, 120, 120);
+}
+
+.loading-page h {
+  margin-bottom: 15px;
 }
 
 .post-thought .text-area {
@@ -89,6 +112,7 @@ textarea {
   color: rgb(120, 120, 120);
 }
 
+.loading-page-emoji,
 .hearted-count-emoji {
   display: inline-block;
   animation: pulse-big 2s infinite;
