@@ -135,6 +135,7 @@ textarea {
   -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   transform-origin: 50% 0;
   animation: append-animate 0.3s linear;
+  overflow-wrap: break-word;
 }
 
 @keyframes pulse-small {
