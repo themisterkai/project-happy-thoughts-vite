@@ -7,6 +7,7 @@ import { errorTooLong, errorTooShort } from '../constants';
 export const PostThought = ({ handleFetchData }) => {
   const [thought, setThought] = useState('');
   const [error, setError] = useState('');
+  const [disabled, setDisabled] = useState(false);
   const postThought = async message => {
     if (message.length < 5) {
       setError(errorTooShort);
@@ -39,8 +40,10 @@ export const PostThought = ({ handleFetchData }) => {
   const checkIfTooLong = message => {
     if (message.length > 140) {
       setError(errorTooLong);
+      setDisabled(true);
     } else {
       setError('');
+      setDisabled(false);
     }
   };
 
@@ -68,7 +71,7 @@ export const PostThought = ({ handleFetchData }) => {
         {thought.length}/140
       </div>
       <div className="post-thought-button">
-        <button onClick={() => postThought(thought)}>
+        <button onClick={() => postThought(thought)} disabled={disabled}>
           ❤️ Send Happy Thought ❤️
         </button>
       </div>
