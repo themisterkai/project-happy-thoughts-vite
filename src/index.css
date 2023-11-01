@@ -66,6 +66,14 @@ h1 {
 .loading-page h {
   margin-bottom: 15px;
 }
+.post-thought-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  color: rgb(97, 97, 97);
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
 
 .post-thought .text-area {
   width: 100%;
