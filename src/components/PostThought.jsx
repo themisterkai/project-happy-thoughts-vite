@@ -1,9 +1,18 @@
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 
+import { Error } from './Error';
+import { errorTooLong, errorTooShort } from '../constants';
+
 export const PostThought = ({ handleFetchData }) => {
   const [thought, setThought] = useState('');
+  const [error, setError] = useState('');
   const postThought = async message => {
+    if (message.length < 5) {
+      setError(errorTooShort);
+      return;
+    }
+
     try {
       const response = await fetch(
         `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts`,
@@ -27,6 +36,14 @@ export const PostThought = ({ handleFetchData }) => {
     }
   };
 
+  const checkIfTooLong = message => {
+    if (message.length > 140) {
+      setError(errorTooLong);
+    } else {
+      setError('');
+    }
+  };
+
   return (
     <div className="post-thought">
       <div className="post-thought-title">
@@ -38,10 +55,11 @@ export const PostThought = ({ handleFetchData }) => {
           value={thought}
           onChange={e => {
             setThought(e.target.value);
-            console.log(thought);
+            checkIfTooLong(e.target.value);
           }}
         />
       </div>
+      <Error error={error} />
       <div
         className={
           thought.length < 140 ? 'post-thought-count' : 'post-thought-count-red'
