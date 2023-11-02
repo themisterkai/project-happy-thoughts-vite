@@ -7,6 +7,7 @@ export const Heart = ({
   handleFetchData,
   hearted,
   setHearted,
+  setHeartCount,
 }) => {
   useEffect(() => {
     localStorage.setItem('hearted', JSON.stringify(hearted));
@@ -14,6 +15,12 @@ export const Heart = ({
 
   const heartThought = async id => {
     try {
+      // This is for the optimistic update for the hearted state of posts.
+      setHeartCount(hearts + 1);
+      if (hearted.indexOf(id) === -1) {
+        setHearted([...hearted, id]);
+      }
+
       const response = await fetch(
         `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${id}/like`,
         {
@@ -21,9 +28,7 @@ export const Heart = ({
           headers: new Headers({ 'content-type': 'application/json' }),
         }
       );
-      const data = await response.json();
-      console.log(data);
-      console.log();
+      await response.json();
       handleFetchData();
       if (hearted.indexOf(id) === -1) {
         setHearted([...hearted, id]);
@@ -58,4 +63,5 @@ Heart.propTypes = {
   handleFetchData: PropTypes.func.isRequired,
   hearted: PropTypes.array.isRequired,
   setHearted: PropTypes.func.isRequired,
+  setHeartCount: PropTypes.func.isRequired,
 };

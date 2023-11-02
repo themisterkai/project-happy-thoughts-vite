@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import ReactTimeAgo from 'react-time-ago';
+import { useState } from 'react';
 
 import { Heart } from './Heart';
 
@@ -13,6 +14,7 @@ export const Thought = ({
   setHearted,
   className,
 }) => {
+  const [heartCount, setHeartCount] = useState(hearts);
   return (
     <div className={`thought ${className}`}>
       <div className="thought-message">{message}</div>
@@ -20,10 +22,11 @@ export const Thought = ({
         <div className="thought-hearts">
           <Heart
             _id={_id}
-            hearts={hearts}
+            hearts={heartCount}
             handleFetchData={handleFetchData}
             hearted={hearted}
             setHearted={setHearted}
+            setHeartCount={setHeartCount}
           />
         </div>
         <div className="thought-time">
