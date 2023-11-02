@@ -46,10 +46,13 @@ export const App = () => {
         <>
           <Header />
           <Hearted count={hearted.length} />
-          <PostThought handleFetchData={handleFetchData} />
+          <PostThought
+            handleFetchData={handleFetchData}
+            thoughts={thoughts}
+            updateThoughts={updateThoughts}
+          />
           <Thoughts
             thoughts={thoughts}
-            // updateThoughts={updateThoughts}
             handleFetchData={handleFetchData}
             hearted={hearted}
             setHearted={setHearted}

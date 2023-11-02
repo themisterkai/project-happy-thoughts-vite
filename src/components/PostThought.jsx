@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Error } from './Error';
 import { errorTooLong, errorTooShort } from '../constants';
 
-export const PostThought = ({ handleFetchData }) => {
+export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
   const [thought, setThought] = useState('');
   const [error, setError] = useState('');
   const [disabled, setDisabled] = useState(false);
@@ -13,6 +13,18 @@ export const PostThought = ({ handleFetchData }) => {
       setError(errorTooShort);
       return;
     }
+
+    // we add the thought immediately. This will be replaced when we get the result
+    // from the API.
+    const optimisticThought = {
+      _id: 'optimisic_thought',
+      className: 'optimistic-thought',
+      message,
+      hearts: 0,
+      createdAt: Date.now(),
+      __v: 0,
+    };
+    updateThoughts([optimisticThought, ...thoughts]);
 
     try {
       const response = await fetch(
@@ -86,6 +98,7 @@ export const PostThought = ({ handleFetchData }) => {
 };
 
 PostThought.propTypes = {
-  // updateThoughts: PropTypes.func.isRequired,
   handleFetchData: PropTypes.func.isRequired,
+  thoughts: PropTypes.array.isRequired,
+  updateThoughts: PropTypes.func.isRequired,
 };

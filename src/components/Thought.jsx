@@ -11,9 +11,10 @@ export const Thought = ({
   handleFetchData,
   hearted,
   setHearted,
+  className,
 }) => {
   return (
-    <div className="thought">
+    <div className={`thought ${className}`}>
       <div className="thought-message">{message}</div>
       <div className="thought-heart-time-wrapper">
         <div className="thought-hearts">
@@ -41,4 +42,5 @@ Thought.propTypes = {
   handleFetchData: PropTypes.func.isRequired,
   hearted: PropTypes.array.isRequired,
   setHearted: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
