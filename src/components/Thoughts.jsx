@@ -17,6 +17,7 @@ export const Thoughts = ({
       {thoughts.map(thought => (
         <div key={thought._id} className="thought-wrapper">
           <Thought
+            className={thought.className != null ? thought.className : ''}
             {...thought}
             handleFetchData={handleFetchData}
             hearted={hearted}

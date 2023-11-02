@@ -66,6 +66,7 @@ h1 {
 .loading-page h {
   margin-bottom: 15px;
 }
+
 .post-thought-container {
   width: 100%;
   display: grid;
@@ -154,13 +155,18 @@ textarea {
 }
 
 .thought-wrapper {
-  width: 100%;
-  /* text-align: center; */
-  /* flex-direction: column;
-  gap: 25px; */
+  width: 110%;
 }
 
 .thought {
+  border: 1px solid;
+  padding: 20px;
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  overflow-wrap: break-word;
+}
+
+.optimistic-thought {
   border: 1px solid;
   padding: 20px;
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
