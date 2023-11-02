@@ -14,7 +14,8 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
       return;
     }
 
-    // we add the thought immediately. This will be replaced when we get the result
+    // This is for the optimistic update for thoughts.
+    // We add the thought immediately. This will be replaced when we get the result
     // from the API.
     const optimisticThought = {
       _id: 'optimisic_thought',

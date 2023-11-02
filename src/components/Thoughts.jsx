@@ -10,8 +10,6 @@ export const Thoughts = ({
   hearted,
   setHearted,
 }) => {
-  // const [error, setError] = useState();
-
   return (
     <>
       {thoughts.map(thought => (
