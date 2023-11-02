@@ -66,6 +66,7 @@ h1 {
 .loading-page h {
   margin-bottom: 15px;
 }
+
 .post-thought-container {
   width: 100%;
   display: grid;
@@ -154,10 +155,7 @@ textarea {
 }
 
 .thought-wrapper {
-  width: 100%;
-  /* text-align: center; */
-  /* flex-direction: column;
-  gap: 25px; */
+  width: 110%;
 }
 
 .thought {
