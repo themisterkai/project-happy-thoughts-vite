@@ -1,12 +1,8 @@
-import { useEffect, useState } from 'react';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
+import { useEffect, useState } from 'react';
 
-import { Thoughts } from './components/Thoughts';
-import { PostThought } from './components/PostThought';
-import { Hearted } from './components/Hearted';
-import { Header } from './components/Header';
-import { LoadingPage } from './components/LoadingPage';
+import { MainContainer } from './components/MainContainer';
 
 export const App = () => {
   TimeAgo.setDefaultLocale(en.locale);
@@ -38,26 +34,12 @@ export const App = () => {
   }, []);
 
   return (
-    <div className="main">
-      {loading ? (
-        <LoadingPage />
-      ) : (
-        <>
-          <Header />
-          <Hearted count={hearted.length} />
-          <PostThought
-            handleFetchData={handleFetchData}
-            thoughts={thoughts}
-            updateThoughts={updateThoughts}
-          />
-          <Thoughts
-            thoughts={thoughts}
-            handleFetchData={handleFetchData}
-            hearted={hearted}
-            setHearted={setHearted}
-          />
-        </>
-      )}
-    </div>
+    <MainContainer
+      loading={loading}
+      thoughts={thoughts}
+      updateThoughts={updateThoughts}
+      hearted={hearted}
+      setHearted={setHearted}
+    />
   );
 };

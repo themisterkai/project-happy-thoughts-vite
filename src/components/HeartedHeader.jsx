@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-export const Hearted = ({ count }) => {
+export const HeartedHeader = ({ count }) => {
   return (
     <div className="heartedCount">
       <span className="heartedCountEmoji">💖</span> {count}{' '}
@@ -9,6 +9,6 @@ export const Hearted = ({ count }) => {
   );
 };
 
-Hearted.propTypes = {
+HeartedHeader.propTypes = {
   count: PropTypes.number.isRequired,
 };
