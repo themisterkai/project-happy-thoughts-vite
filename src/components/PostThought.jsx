@@ -19,7 +19,7 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
     // from the API.
     const optimisticThought = {
       _id: 'optimisic_thought',
-      className: 'optimistic-thought',
+      className: 'optimisticThought',
       message,
       hearts: 0,
       createdAt: Date.now(),
@@ -36,9 +36,7 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
           headers: new Headers({ 'content-type': 'application/json' }),
         }
       );
-      const data = await response.json();
-      console.log(data);
-      console.log();
+      await response.json();
       setThought('');
       handleFetchData();
 
@@ -61,11 +59,11 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
   };
 
   return (
-    <div className="post-thought">
-      <div className="post-thought-title">
+    <div className="postThought">
+      <div className="postThoughtTitle">
         <h2>What is making you happy right now?</h2>
       </div>
-      <div className="text-area">
+      <div className="textArea">
         <textarea
           rows={3}
           value={thought}
@@ -75,21 +73,19 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
           }}
         />
       </div>
-      <div className="post-thought-container">
-        <div className="post-thought-container-error">
+      <div className="postThoughtContainer">
+        <div className="postThoughtContainerError">
           <Error error={error} />
         </div>
         <div
           className={
-            thought.length < 140
-              ? 'post-thought-count'
-              : 'post-thought-count-red'
+            thought.length <= 140 ? 'postThoughtCount' : 'postThoughtCountRed'
           }
         >
           {thought.length}/140
         </div>
       </div>
-      <div className="post-thought-button">
+      <div className="postThoughtButton">
         <button onClick={() => postThought(thought)} disabled={disabled}>
           ❤️ Send Happy Thought ❤️
         </button>

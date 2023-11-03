@@ -23,7 +23,7 @@ code {
   gap: 25px;
 }
 
-.post-thought {
+.postThought {
   background-color: #ebebeb;
   border: 1px solid rgb(105, 105, 105);
   margin: 0;
@@ -44,7 +44,7 @@ h1 {
   white-space: nowrap;
 }
 
-.loading-page {
+.loadingPage {
   display: block;
   text-align: center;
   justify-content: center;
@@ -54,20 +54,20 @@ h1 {
   transform: translateY(-50%);
 }
 
-.loading-page h1 {
+.loadingPage h1 {
   margin-bottom: 10px;
 }
 
-.loading-page-text {
+.loadingPageText {
   margin-top: 50px;
   color: rgb(120, 120, 120);
 }
 
-.loading-page h {
+.loadingPage h {
   margin-bottom: 15px;
 }
 
-.post-thought-container {
+.postThoughtContainer {
   width: 100%;
   display: grid;
   grid-template-columns: 5fr 1fr;
@@ -76,7 +76,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.post-thought .text-area {
+.postThought .textArea {
   width: 100%;
 }
 
@@ -85,7 +85,7 @@ textarea {
   font-size: 18px;
 }
 
-.post-thought button {
+.postThought button {
   background-color: #ffb7d2;
   border-radius: 25px;
   padding: 5px 10px;
@@ -99,17 +99,13 @@ textarea {
   cursor: pointer;
 }
 
-.post-wrapper button:hover {
-  background-color: rgb(255, 199, 220);
-}
-
-.post-thought-count {
+.postThoughtCount {
   width: 100%;
   color: rgb(97, 97, 97);
   text-align: right;
 }
 
-.thought-heart-time-wrapper {
+.thoughtHeartTimeWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,44 +113,36 @@ textarea {
   margin-top: 20px;
 }
 
-.thought-time {
+.thoughtTime {
   color: rgb(120, 120, 120);
 }
 
-.loading-page-emoji,
-.hearted-count-emoji {
-  display: inline-block;
-  animation: pulse-big 2s infinite;
-}
-
-.thought-hearts button {
+.thoughtHearts button {
   font-size: 24px;
   background-color: #d1d1d1;
   padding: 10px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  animation: pulse-small 2s infinite;
 }
 
-.thought-hearts button:hover {
+.thoughtHearts button:hover {
   background-color: rgb(255, 199, 220);
 }
 
-.thought-hearts-liked button,
-.thought-hearts-liked button:hover {
+.thoughtHeartsLiked button,
+.thoughtHeartsLiked button:hover {
   background-color: #ee8bb4;
   cursor: default;
-  /* -webkit-appearance: none; */
 }
 
-.post-thought-count-red {
+.postThoughtCountRed {
   width: 100%;
   color: red;
   text-align: right;
 }
 
-.thought-wrapper {
+.thoughtWrapper {
   width: 110%;
 }
 
@@ -166,45 +154,17 @@ textarea {
   overflow-wrap: break-word;
 }
 
-.optimistic-thought {
+.optimisticThought {
   border: 1px solid;
   padding: 20px;
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   -webkit-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   transform-origin: 50% 0;
-  animation: append-animate 0.3s linear;
+  animation: appendAnimate 0.3s linear;
   overflow-wrap: break-word;
 }
 
-@keyframes pulse-small {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse-big {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.5);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes append-animate {
+@keyframes appendAnimate {
   from {
     transform: scaleY(0);
     opacity: 0;
@@ -219,10 +179,10 @@ textarea {
   .main {
     width: 60%;
   }
-  .post-thought {
+  .postThought {
     width: 70%;
   }
-  .thought-wrapper {
+  .thoughtWrapper {
     width: 70%;
   }
   .message {

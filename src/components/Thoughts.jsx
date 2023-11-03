@@ -1,7 +1,5 @@
 import { PropTypes } from 'prop-types';
 
-// import { useEffect } from 'react';
-
 import { Thought } from './Thought';
 
 export const Thoughts = ({
@@ -13,7 +11,7 @@ export const Thoughts = ({
   return (
     <>
       {thoughts.map(thought => (
-        <div key={thought._id} className="thought-wrapper">
+        <div key={thought._id} className="thoughtWrapper">
           <Thought
             className={thought.className != null ? thought.className : ''}
             {...thought}
