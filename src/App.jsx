@@ -23,7 +23,6 @@ export const App = () => {
         `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts`
       );
       const data = await response.json();
-      console.log(data);
       updateThoughts(data);
       // need to handle 404
       setLoading(false);

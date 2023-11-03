@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 import ReactTimeAgo from 'react-time-ago';
 import { useState } from 'react';
 
-import { Heart } from './Heart';
+import { HeartButton } from './HeartButton';
 
 export const Thought = ({
   _id,
@@ -17,10 +17,10 @@ export const Thought = ({
   const [heartCount, setHeartCount] = useState(hearts);
   return (
     <div className={`thought ${className}`}>
-      <div className="thought-message">{message}</div>
-      <div className="thought-heart-time-wrapper">
-        <div className="thought-hearts">
-          <Heart
+      <div className="thoughtMessage">{message}</div>
+      <div className="thoughtHeartTimeWrapper">
+        <div className="thoughtHearts">
+          <HeartButton
             _id={_id}
             hearts={heartCount}
             handleFetchData={handleFetchData}
@@ -29,7 +29,7 @@ export const Thought = ({
             setHeartCount={setHeartCount}
           />
         </div>
-        <div className="thought-time">
+        <div className="thoughtTime">
           <ReactTimeAgo date={new Date(createdAt)} locale="en-US" />
         </div>
       </div>

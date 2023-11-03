@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useEffect } from 'react';
 
-export const Heart = ({
+export const HeartButton = ({
   _id,
   hearts,
   handleFetchData,
@@ -45,11 +45,11 @@ export const Heart = ({
   return (
     <div>
       {disabled ? (
-        <div className="thought-hearts-liked">
+        <div className="thoughtHeartsLiked">
           <button>💖</button> x {hearts}
         </div>
       ) : (
-        <div className="thought-hearts">
+        <div className="thoughtHearts">
           <button onClick={() => heartThought(_id)}>❤️</button> x {hearts}
         </div>
       )}
@@ -57,7 +57,7 @@ export const Heart = ({
   );
 };
 
-Heart.propTypes = {
+HeartButton.propTypes = {
   _id: PropTypes.string.isRequired,
   hearts: PropTypes.number.isRequired,
   handleFetchData: PropTypes.func.isRequired,
