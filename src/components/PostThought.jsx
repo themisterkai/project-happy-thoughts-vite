@@ -58,6 +58,9 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
     }
   };
 
+  // Helper function to check if message is over 140 characters. We will display an error to
+  // the user in this case and also disable the submit button since we know that the API will
+  // reject these messages.
   const checkIfMessageTooLong = message => {
     if (message.length > 140) {
       setError(errorTooLong);

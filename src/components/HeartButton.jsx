@@ -28,17 +28,23 @@ export const HeartButton = ({
           headers: new Headers({ 'content-type': 'application/json' }),
         }
       );
-      await response.json();
+      const data = await response.json();
+      if (response.status >= 400 && response.status < 600) {
+        throw new Error(
+          JSON.stringify({
+            code: response.status,
+            message: data.message,
+            errorDetail: data.errors.message.message,
+          })
+        );
+      }
       handleFetchData();
       if (hearted.indexOf(id) === -1) {
         setHearted([...hearted, id]);
       }
-
-      // need to handle 404
     } catch (e) {
-      // need to handle this better
-      // setError(e.toString());
-      // console.log(error);
+      // we can log the error in case it will be useful for users when reporting bugs to us
+      console.error(e);
     }
   };
   const disabled = hearted.indexOf(_id) !== -1;
