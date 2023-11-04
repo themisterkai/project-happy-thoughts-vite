@@ -21,7 +21,7 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
     // We add the thought immediately. This will be replaced when we get the result
     // from the API.
     const optimisticThought = {
-      _id: 'optimisic_thought',
+      _id: window.crypto.randomUUID(),
       className: 'optimisticThought',
       message,
       hearts: 0,
