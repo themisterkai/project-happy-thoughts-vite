@@ -41,7 +41,8 @@ Thought.propTypes = {
   _id: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   hearts: PropTypes.number.isRequired,
-  createdAt: PropTypes.string.isRequired,
+  createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   handleFetchData: PropTypes.func.isRequired,
   hearted: PropTypes.array.isRequired,
   setHearted: PropTypes.func.isRequired,

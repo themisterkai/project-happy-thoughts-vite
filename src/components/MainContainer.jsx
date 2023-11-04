@@ -41,7 +41,6 @@ MainContainer.propTypes = {
   loading: PropTypes.bool.isRequired,
   thoughts: PropTypes.array.isRequired,
   updateThoughts: PropTypes.func.isRequired,
-  hearts: PropTypes.number.isRequired,
   handleFetchData: PropTypes.func.isRequired,
   hearted: PropTypes.array.isRequired,
   setHearted: PropTypes.func.isRequired,

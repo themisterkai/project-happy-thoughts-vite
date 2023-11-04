@@ -19,13 +19,20 @@ export const App = () => {
         `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts`
       );
       const data = await response.json();
+      if (response.status >= 400 && response.status < 600) {
+        throw new Error(
+          JSON.stringify({
+            code: response.status,
+            message: data.message,
+            errorDetail: data.errors.message.message,
+          })
+        );
+      }
       updateThoughts(data);
-      // need to handle 404
       setLoading(false);
     } catch (e) {
-      // need to handle this better
-      // setError(e.toString());
-      // console.log(error);
+      // we can log the error in case it will be useful for users when reporting bugs to us
+      console.error(e);
     }
   };
 
@@ -37,6 +44,7 @@ export const App = () => {
     <MainContainer
       loading={loading}
       thoughts={thoughts}
+      handleFetchData={handleFetchData}
       updateThoughts={updateThoughts}
       hearted={hearted}
       setHearted={setHearted}
