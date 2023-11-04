@@ -44,6 +44,7 @@ export const App = () => {
     <MainContainer
       loading={loading}
       thoughts={thoughts}
+      handleFetchData={handleFetchData}
       updateThoughts={updateThoughts}
       hearted={hearted}
       setHearted={setHearted}

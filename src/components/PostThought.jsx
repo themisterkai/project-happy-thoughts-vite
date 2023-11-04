@@ -49,7 +49,6 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
           })
         );
       }
-      await response.json();
       setThought('');
       handleFetchData();
     } catch (e) {
