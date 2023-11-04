@@ -1,9 +1,9 @@
 import { PropTypes } from 'prop-types';
 
-export const Error = ({ error }) => {
+export const ErrorMessage = ({ error }) => {
   return <div className="error">{error}</div>;
 };
 
-Error.propTypes = {
+ErrorMessage.propTypes = {
   error: PropTypes.string.isRequired,
 };

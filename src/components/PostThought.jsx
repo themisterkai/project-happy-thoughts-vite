@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 
-import { Error } from './Error';
+import { ErrorMessage } from './ErrorMessage';
 import { errorTooLong, errorTooShort } from '../constants';
 
 export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
@@ -9,6 +9,9 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
   const [error, setError] = useState('');
   const [disabled, setDisabled] = useState(false);
   const postThought = async message => {
+    // we are catching potential errors here before sending a request to the API.
+    // messages that are less than 5 messages will be set an error state and will
+    // not go through.
     if (message.length < 5) {
       setError(errorTooShort);
       return;
@@ -36,19 +39,26 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
           headers: new Headers({ 'content-type': 'application/json' }),
         }
       );
+      const data = await response.json();
+      if (response.status >= 400 && response.status < 600) {
+        throw new Error(
+          JSON.stringify({
+            code: response.status,
+            message: data.message,
+            errorDetail: data.errors.message.message,
+          })
+        );
+      }
       await response.json();
       setThought('');
       handleFetchData();
-
-      // need to handle 404
     } catch (e) {
-      // need to handle this better
-      // setError(e.toString());
-      // console.log(error);
+      // we can log the error in case it will be useful for users when reporting bugs to us
+      console.error(e);
     }
   };
 
-  const checkIfTooLong = message => {
+  const checkIfMessageTooLong = message => {
     if (message.length > 140) {
       setError(errorTooLong);
       setDisabled(true);
@@ -69,13 +79,13 @@ export const PostThought = ({ handleFetchData, thoughts, updateThoughts }) => {
           value={thought}
           onChange={e => {
             setThought(e.target.value);
-            checkIfTooLong(e.target.value);
+            checkIfMessageTooLong(e.target.value);
           }}
         />
       </div>
       <div className="postThoughtContainer">
         <div className="postThoughtContainerError">
-          <Error error={error} />
+          <ErrorMessage error={error} />
         </div>
         <div
           className={
