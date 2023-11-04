@@ -4,32 +4,33 @@
   </a>
 </h1>
 
-# Unhappy thoughts Project
+# Happy Thoughts Project
 
-In this week's project, you'll be able to practice your React state skills by fetching and posting data to an API.
+This projects builds a lightweight Twitter / X clone
 
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
+### Running the code
 
 ```bash
 npm i && code . && npm run dev
 ```
 
-### The Problem
+### Description
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This project has implemented all the basic requirements as well as the intermediate and advanced stretch goals.
+
+- [x] Page should follow the design
+- [x] Displays a list of thoughts, showing the newest thoughts at the top
+- [x] Thought container shows the message, date, and like count
+- [x] Users are able to post new thoughts
+- [x] A heart button that can send a like on a thought (Note: I chose to implement it in a way that a user can only like a thought once)
+- [x] The app adapts to the different viewports
+- [x] Character counter which turns red when user goes over the allowed count
+- [x] Showing a user-friendly error when the message is either too short or too long
+- [x] Keeps a count of both the number of likes the user has liked, and also which thought they had liked. These are currently stored in localStorage,
+- [x] Adding a new thought is animated
+- [x] Added an initial loading page to the app while we wait for the API pull to complete
+- [x] We are using optimistic updates when adding a thought and hearting a thought. These will eventually get replaced by data being pulled from the API.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+[https://kai-happy-thoughts.netlify.app/](https://kai-happy-thoughts.netlify.app/)
